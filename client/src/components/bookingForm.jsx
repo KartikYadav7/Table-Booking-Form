@@ -9,7 +9,7 @@ export default function BookingForm() {
 
   const onSubmit = async (data) => {
     try {
-      await axios.post("http://localhost:5000", data);
+      await axios.post(`${import.meta.env.BACKEND_URL}`, data);
       setMessage("Booking successful!");
       reset();
     } catch (error) {

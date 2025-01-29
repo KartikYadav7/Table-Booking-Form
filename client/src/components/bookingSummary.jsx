@@ -5,13 +5,13 @@ export default function BookingSummary() {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/bookings").then((res) => {
+    axios.get(`${import.meta.env.BACKEND_URL}/api/bookings`).then((res) => {
       setBookings(res.data);
     });
   }, []);
 
   const deleteBooking = (id) => {
-    axios.delete(`http://localhost:5000/${id}`).then(() => {
+    axios.delete(`${import.meta.env.BACKEND_URL}${id}`).then(() => {
       setBookings(bookings.filter((b) => b._id !== id));
     });
   };
